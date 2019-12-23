@@ -1,7 +1,7 @@
 import os
 import webbrowser
 
-desktopPath = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
+desktopPath = os.path.join(os.environ['USERPROFILE'], 'Desktop')
 
 #list of apps to open
 app_1 = "slack.exe"
