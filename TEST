@@ -1,0 +1,27 @@
+#list of apps to open
+app_1 = "C:\Program Files (x86)\Microsoft Office\root\Office16\OUTLOOK.EXE"
+app_2 = "slack.exe"
+
+#list of websites to open
+url_1 = "https://login.360incentives.com/360Core/Login.aspx"
+url_2 = "https://drive.google.com/drive/folders/0B-VKTqswzwr3MUt3ekJvaHBfb0E"
+url_3 = "http://360incentives.freshdesk.com/en/support/login"
+url_4 = "https://360insights.atlassian.net/wiki/spaces/CC/pages/806092938/Risk+and+Compliance+RAC"
+
+print("Opening Stuff...")
+
+app_1 = "C:/Program Files (x86)/Microsoft Office/root/Office16/OUTLOOK.EXE"
+
+system2(app_1)
+
+system2("C:/Program Files (x86)/Microsoft Office/root/Office16/OUTLOOK.EXE")
+
+#opens websites - uses default browser
+browseURL(url_1)
+browseURL(url_2)
+browseURL(url_3)
+browseURL(url_4)
+
+print("Script Completed")
+
+status <- exec_wait("date")
