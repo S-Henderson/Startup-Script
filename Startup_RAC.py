@@ -1,10 +1,3 @@
-"""
-By: Scott Henderson
-Last Updated: Apr 16, 2020
-Purpose: Opens commonly used Windows Apps & URL Links to start workday
-
-"""
-
 import os
 
 import subprocess
@@ -12,8 +5,14 @@ import webbrowser
 
 from datetime import datetime
 
-#--------------- ART ---------------
+"""
+By: Scott Henderson
+Last Updated: Apr 17, 2020
+Purpose: Opens commonly used Windows Apps & URL Links to start workday
 
+"""
+
+#--------------- ASCII ART ---------------
 
 print(r"""
   _________ __                 __                   _________            .__        __    
@@ -27,14 +26,14 @@ print(r"""
 #--------------- SETUP ---------------
 
 # List of Windows Apps to open
-app_1 = 'C:\\Program Files (x86)\\Microsoft Office\\root\\Office16\\OUTLOOK.EXE'
-app_2 = 'C:\\Users\\shenderson\\AppData\\Local\\Microsoft\\Teams\\Update.exe --processStart "Teams.exe"'
+app_list = ['C:\\Program Files (x86)\\Microsoft Office\\root\\Office16\\OUTLOOK.EXE',                           # Outlook Email
+            'C:\\Users\\shenderson\\AppData\\Local\\Microsoft\\Teams\\Update.exe --processStart "Teams.exe"']   # Microsoft Teams Chat
 
 # List of websites to open
-url_1 = "https://login.360incentives.com/360Core/Login.aspx"
-url_2 = "https://drive.google.com/drive/folders/0B-VKTqswzwr3MUt3ekJvaHBfb0E"
-url_3 = "http://360incentives.freshdesk.com/en/support/login"
-url_4 = "https://360insights.atlassian.net/wiki/spaces/CC/pages/806092938/Risk+and+Compliance+RAC"
+url_list = ['https://login.360incentives.com/360Core/Login.aspx',                                               # 360core Login
+            'https://drive.google.com/drive/folders/0B-VKTqswzwr3MUt3ekJvaHBfb0E',                              # RAC Attack Google Drive
+            'http://360incentives.freshdesk.com/en/support/login',                                              # FreshDesk Login
+            'https://360insights.atlassian.net/wiki/spaces/CC/pages/806092938/Risk+and+Compliance+RAC']         # RAC Info Page
 
 #--------------- GREETING ---------------
 
@@ -55,46 +54,88 @@ def find_datetime():
     """
     now = datetime.now() # Current Datetime
     
-    today = now.strftime("%A - %B %d, %Y") # Date
+    today = now.strftime("%A - %B %d, %Y")        # Date
     print("Today's Date is " + today)
     
-    current_time = now.strftime("%I:%M:%S %p") # Time
+    current_time = now.strftime("%I:%M:%S %p")    # Time
     print("The Current Time is " + current_time)
 
 find_datetime()
 
-#--------------- OPEN STUFF ---------------
+#--------------- OPEN APPS & LINKS ---------------
 
 print("*************************")
 
 print("Opening Stuff...")
 
 # Opens Email and Team Chat
-def open_apps():
+def open_apps(app_list):
     """
-    Opens Windows Apps
+    Open Windows Apps
     """
-    subprocess.Popen(app_1)
-    subprocess.Popen(app_2)
+    for app in app_list:
+        subprocess.Popen(app)
 
-open_apps()
+open_apps(app_list)
 
 # Opens Important Work Links
-def open_urls():
+def open_urls(url_list):
     """
-    Opens URL Links in Chrome
+    Open URL Links in default browser
     """
-    webbrowser.open(url_1)
-    webbrowser.open_new_tab(url_2)
-    webbrowser.open_new_tab(url_3)
-    webbrowser.open_new_tab(url_4)
+    for url in url_list:
+        webbrowser.open(url, new = 2) # new = 2 means to open in new tab
 
-open_urls()
+open_urls(url_list)
 
 #--------------- ENDING ---------------
 
 print("Script Completed")
 
 print("*************************")
+
+print("Have A Great Day! Here Are Some Cats!")
+
+print(r"""
+      \`*-.                    
+       )  _`-.                 
+      .  : `. .                
+      : _   '  \               
+      ; *` _.   `*-._          
+      `-.-'          `-.       
+        ;       `       `.     
+        :.       .        \    
+        . \  .   :   .-'   .   
+        '  `+.;  ;  '      :   
+        :  '  |    ;       ;-. 
+        ; '   : :`-:     _.`* ;
+[bug] .*' /  .*' ; .*`- +'  `*' 
+     `*-*   `*-*  `*-*'        
+""")
+
+print(r"""
+          |\___/|
+          )     (             .              '
+         =\     /=
+           )===(       *
+          /     \
+          |     |
+         /       \
+         \       /
+  _/\_/\_/\__  _/_/\_/\_/\_/\_/\_/\_/\_/\_/\_
+  |  |  |  |( (  |  |  |  |  |  |  |  |  |  |
+  |  |  |  | ) ) |  |  |  |  |  |  |  |  |  |
+  |  |  |  |(_(  |  |  |  |  |  |  |  |  |  |
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+""")
+
+print(r"""
+   /\_/\
+   >^.^<.---.
+  _'-`-'     )\
+ (6--\ |--\ (`.`-.
+     --'  --'  ``-'
+""")
 
 input("Press enter to exit :)")
