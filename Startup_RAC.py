@@ -42,9 +42,7 @@ print("Welcome Scotty!")
 
 """ Optional Greeting to Other Users
 import getpass
-
 username = getpass.getuser()
-
 print("Welcome", username)
 """
 
@@ -55,13 +53,12 @@ def find_datetime():
     """
     This function finds the current date and prints it
     """
-    # Current Datetime
-    now = datetime.now()
-    # Date
-    today = now.strftime("%A - %B %d, %Y")
+    now = datetime.now() # Current Datetime
+    
+    today = now.strftime("%A - %B %d, %Y") # Date
     print("Today's Date is " + today)
-    # Time
-    current_time = now.strftime("%I:%M:%S %p")
+    
+    current_time = now.strftime("%I:%M:%S %p") # Time
     print("The Current Time is " + current_time)
 
 find_datetime()
