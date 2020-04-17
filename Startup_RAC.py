@@ -1,3 +1,10 @@
+"""
+By: Scott Henderson
+Last Updated: Apr 16, 2020
+Purpose: Opens commonly used Windows Apps & URL Links to start workday
+
+"""
+
 import os
 
 import subprocess
