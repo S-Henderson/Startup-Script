@@ -1,3 +1,9 @@
+"""
+By: Scott Henderson
+Last Updated: Apr 22, 2020
+Purpose: Opens commonly used Windows Apps & URL Links to start workday
+"""
+
 import os
 
 import subprocess
@@ -5,12 +11,11 @@ import webbrowser
 
 from datetime import datetime
 
-"""
-By: Scott Henderson
-Last Updated: Apr 22, 2020
-Purpose: Opens commonly used Windows Apps & URL Links to start workday
+#--------------- PURPOSE ---------------
 
-"""
+print("Purpose: Opens commonly used Windows Apps & URL Links to start workday")
+
+print("*************************")
 
 #--------------- ASCII ART ---------------
 
