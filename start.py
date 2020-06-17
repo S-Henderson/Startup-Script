@@ -91,7 +91,7 @@ def open_urls(url_list):
     Open URL Links in default browser
     """
     for url in url_list:
-        webbrowser.open(url, new = 2) # new = 2 means to open in new tab
+        webbrowser.open(url, new = 2) # new = 2 -> means to open in new tab
 
 open_urls(url_list)
 
