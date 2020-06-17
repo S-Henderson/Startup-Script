@@ -1,5 +1,0 @@
-Start-Process "outlook.exe"
-Start-Process "slack.exe"
-Start-Process "chrome.exe" "https://login.360incentives.com/360Core/Login.aspx"
-Start-Process "chrome.exe" "https://360in.sharepoint.com/Operations/POS/Forms/AllItems.aspx"
-Start-Process "chrome.exe" "https://360insights.atlassian.net/projects/POS/queues/custom/243"
