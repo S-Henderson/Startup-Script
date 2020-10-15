@@ -1,6 +1,6 @@
 """
 Author: Scott Henderson
-Last Updated: Oct 14, 2020
+Last Updated: Oct 15, 2020
 
 Purpose: Opens commonly used Windows Apps & URL Links to start workday
 """
@@ -48,6 +48,8 @@ url_list = ["https://login.360incentives.com/360Core/Login.aspx",               
 
 print("Welcome Scotty!")
 
+print("*************************")
+
 """ Optional Greeting to Other Users
 import getpass
 username = getpass.getuser()
@@ -56,18 +58,18 @@ print("Welcome", username)
 
 #--------------- DISPLAY DATE & TIME ---------------#
 
-# Fun function to display current date & time
+# Display current date & time
 def find_datetime():
     """
     This function finds the current date and prints it
     """
-    now = datetime.now() # Current Datetime
+    now = datetime.now()                         # Current Datetime
     
-    today = now.strftime("%A - %B %d, %Y")        # Date
-    print("Today's Date is " + today)
+    today = now.strftime("%A, %B %d, %Y")       # Date
+    print(f"Today's Date is: {today}")
     
-    current_time = now.strftime("%I:%M:%S %p")    # Time
-    print("The Current Time is " + current_time)
+    current_time = now.strftime("%I:%M:%S %p")   # Time
+    print(f"The Current Time is: {current_time}")
 
 find_datetime()
 
@@ -75,38 +77,44 @@ find_datetime()
 
 print("*************************")
 
-print("Opening Stuff...")
-
-# Opens Email and Team Chat
+# Opens apps
 def open_apps(app_list):
     """
     Open Windows Apps
     """
+    
+    print("Opening Apps...")
+    
     for app in app_list:
+    
         subprocess.Popen(app)
         
-        # sometimes doesnt load all links correctly at once
-        time.sleep(2)
+        time.sleep(2) # Sometimes doesnt load all links correctly at once
 
 open_apps(app_list)
 
 #--------------- OPEN LINKS ---------------#
 
-# Opens Important Work Links
+# Opens links
 def open_urls(url_list):
     """
     Open URL Links in default browser
     """
+    
+    print("Opening Links...")
+    
     for url in url_list:
-        webbrowser.open(url, new = 2) # new = 2 -> means to open in new tab
+    
+        webbrowser.open(url, new = 2) # New = 2 -> means to open in new tab
         
-        # sometimes doesnt load all links correctly at once
-        time.sleep(2)
+        time.sleep(2)                 # Sometimes doesnt load all links correctly at once
 
 open_urls(url_list)
 
-#--------------- ENDING ---------------#
+#--------------- SCRIPT COMPLETED ---------------#
+
+print("*************************")
 
 print("Script Completed")
 
-print("*************************")
+input("Press Enter to Continue...")
