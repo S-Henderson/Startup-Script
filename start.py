@@ -1,6 +1,7 @@
 """
-By: Scott Henderson
-Last Updated: Apr 22, 2020
+Author: Scott Henderson
+Last Updated: Oct 14, 2020
+
 Purpose: Opens commonly used Windows Apps & URL Links to start workday
 """
 
@@ -9,15 +10,16 @@ import os
 import subprocess
 import webbrowser
 
+import time
 from datetime import datetime
 
-#--------------- PURPOSE ---------------
+#--------------- PURPOSE ---------------#
 
 print("Purpose: Opens commonly used Windows Apps & URL Links to start workday")
 
 print("*************************")
 
-#--------------- ASCII ART ---------------
+#--------------- ASCII ART ---------------#
 
 print(r"""
   _________ __                 __                   _________            .__        __    
@@ -28,7 +30,7 @@ print(r"""
         \/           \/                  |__|             \/     \/         |__|           
 """)
 
-#--------------- SETUP ---------------
+#--------------- SETUP ---------------#
 
 # List of Windows Apps to open
 app_list = ["C:\\Program Files (x86)\\Microsoft Office\\root\\Office16\\OUTLOOK.EXE",                         # Outlook Email
@@ -42,7 +44,7 @@ url_list = ["https://login.360incentives.com/360Core/Login.aspx",               
             "https://360insights.quickbase.com/db/bp6rgphzr",                                                 # QuickBase Report Tracking
             "https://www.youtube.com/"]                                                                       # Youtube           
 
-#--------------- GREETING ---------------
+#--------------- GREETING ---------------#
 
 print("Welcome Scotty!")
 
@@ -52,7 +54,7 @@ username = getpass.getuser()
 print("Welcome", username)
 """
 
-#--------------- DATE STUFF ---------------
+#--------------- DISPLAY DATE & TIME ---------------#
 
 # Fun function to display current date & time
 def find_datetime():
@@ -69,7 +71,7 @@ def find_datetime():
 
 find_datetime()
 
-#--------------- OPEN APPS & LINKS ---------------
+#--------------- OPEN APPS ---------------#
 
 print("*************************")
 
@@ -82,8 +84,13 @@ def open_apps(app_list):
     """
     for app in app_list:
         subprocess.Popen(app)
+        
+        # sometimes doesnt load all links correctly at once
+        time.sleep(2)
 
 open_apps(app_list)
+
+#--------------- OPEN LINKS ---------------#
 
 # Opens Important Work Links
 def open_urls(url_list):
@@ -92,55 +99,14 @@ def open_urls(url_list):
     """
     for url in url_list:
         webbrowser.open(url, new = 2) # new = 2 -> means to open in new tab
+        
+        # sometimes doesnt load all links correctly at once
+        time.sleep(2)
 
 open_urls(url_list)
 
-#--------------- ENDING ---------------
+#--------------- ENDING ---------------#
 
 print("Script Completed")
 
 print("*************************")
-
-print("Have A Great Day! Here Are Some Cats!")
-
-print(r"""
-      \`*-.                    
-       )  _`-.                 
-      .  : `. .                
-      : _   "  \               
-      ; *` _.   `*-._          
-      `-.-"          `-.       
-        ;       `       `.     
-        :.       .        \    
-        . \  .   :   .-"   .   
-        "  `+.;  ;  "      :   
-        :  "  |    ;       ;-. 
-        ; "   : :`-:     _.`* ;
-[bug] .*" /  .*" ; .*`- +"  `*" 
-     `*-*   `*-*  `*-*"        
-""")
-
-print(r"""
-          |\___/|
-          )     (             .              "
-         =\     /=
-           )===(       *
-          /     \
-          |     |
-         /       \
-         \       /
-  _/\_/\_/\__  _/_/\_/\_/\_/\_/\_/\_/\_/\_/\_
-  |  |  |  |( (  |  |  |  |  |  |  |  |  |  |
-  |  |  |  | ) ) |  |  |  |  |  |  |  |  |  |
-  |  |  |  |(_(  |  |  |  |  |  |  |  |  |  |
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-  |  |  |  |  |  |  |  |  |  |  |  |  |  |
-""")
-
-print(r"""
-   /\_/\
-   >^.^<.---.
-  _"-`-"     )\
- (6--\ |--\ (`.`-.
-     --"  --"  ``-"
-""")
